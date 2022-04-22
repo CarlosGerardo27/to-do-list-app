@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/CarlosGerardo27/to-do-list-app/issues"
   },
-  "homepage": "https://github.com/CarlosGerardo27/to-do-list-app#readme"
+  "homepage": "https://github.com/CarlosGerardo27/to-do-list-app#readme",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
 }
