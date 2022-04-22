@@ -5,8 +5,7 @@ require('colors')
 const mostrarMenu = ()=>{
 
     //a cotninuación cree una promesa puesto que requiero que mi función retorne un valor de respuesta que debe ser retornado para ser recibido por otra función
-
-    return new Promise( resolve()=>{
+    return new Promise(resolve =>{
 
         console.clear()
     
@@ -31,30 +30,39 @@ const mostrarMenu = ()=>{
     
         readline.question('Seleccione una opción:', (opt)=>{
             readline.close();
-            resolve(opt)
-
+            resolve(opt);
+    
             // el resolve de la promesa va aquí porque el input del usuario de la lista de opciones es el valor que debera ser retirnado como respuesta
+
         })
+    });
 
 
-    } )
+
+
     
 
 }
 
 
 const pausa = ()=>{
+    
+    return new Promise ( resolve => {
 
-    const readline = require('readline').createInterface({
+        const readline = require('readline').createInterface({
+    
+            input: process.stdin,
+            output: process.stdout
+    
+        });
+    
+        readline.question(`\nPresione ${'ENTER'.cyan} para continuar \n`, (opt)=>{
+            readline.close();
+            resolve();
+        })
 
-        input: process.stdin,
-        output: process.stdout
+    } );
 
-    });
-
-    readline.question(`\nPresione ${'ENTER'.cyan} para continuar \n`, (opt)=>{
-        readline.close();
-    })
 
 }
 
