@@ -43,6 +43,7 @@ const preguntas = [
 ];
 
 
+//Esta es la función que imprime el menú pirncipal, esta función se exporta al archivo principal, app.js
 const inquirerMenu = async () => {
 
     console.clear()
@@ -56,7 +57,6 @@ const inquirerMenu = async () => {
     return opcion;
 
 }
-
 
 
 
@@ -77,6 +77,7 @@ const pausa =  async () => {
 }
 
 
+// 3. Esta función se ejecuta cuando el usuario selecciona la opción "Crear tarea" , recibe un input con la descripción de la tarea nueva, esta función se exporta al archivo app.js
 
 const leerInput = async (message)  => {
 
