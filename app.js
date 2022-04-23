@@ -1,5 +1,10 @@
 require('colors');
 const { 
+    guardarInfo,
+    leerDB, 
+        } = require('./helpers/guardarArchivo');
+
+const { 
         inquirerMenu, 
         pausa,
         leerInput 
@@ -12,7 +17,19 @@ const main = async () =>{
     
     let opt = '';
 
-    const tareas = new Tareas()
+    const tareas = new Tareas();
+
+    const tareasDB = leerDB();
+
+    //validamos si las tareas existen
+
+    if( tareasDB ) {
+        
+        //establecer las tareas
+        tareas.cargarTareaFromArray( tareasDB )
+
+    }
+
 
     do {
         
@@ -31,9 +48,12 @@ const main = async () =>{
             break;
 
             case '2':
-                console.log(tareas.listadoArr);
+                tareas.listadoCompleto();
     
         }
+
+        //Esta función se encarga de escribir en nuestro archivo la información que se crea en la aplicación     
+        guardarInfo( tareas.listadoArr )
          
         await pausa()
         
