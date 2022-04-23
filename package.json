@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/CarlosGerardo27/to-do-list-app#readme",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "inquirer": "^8.2.2"
   }
 }
