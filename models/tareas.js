@@ -50,13 +50,45 @@ Con esto se crea la nueva propiedad en _listado y a la vez se le asigna valor. *
         this.listadoArr.forEach( ( tarea, i ) => {
 
             const idx = ` ${i + 1}`.green // le sumo uno al indice (i) para que la cuenta comience en 1 y no en 0
-            const { _description, _completado } = tarea 
-            const estado = ( _completado )
-                            ? 'Completado'.green
+            const { _description, _completado } = tarea  // obtengo los objetos provenientes de la tarea haciendo una desestructuración
+            const estado = ( _completado ) // llamo al estado proveniente de la desestructuración precia
+                            ? 'Completado'.green // haciendo uso del operador ternatio (completado) ? "Completado" : "Pendiente"
                             : 'Pendiente'.red;  
             console.log( `${idx}. ${_description} :: ${estado}` )
 
         } )
+
+    }
+
+
+    listarCompletadasPendientes ( completadas = true ){
+
+        console.log('\n')
+        let contador = 0;
+        this.listadoArr.forEach(  tarea  => {
+
+            const { _description, _completado } = tarea 
+            const estado = ( _completado ) 
+                            ? 'Completado'.green 
+                            : 'Pendiente'.red;  
+            
+            if( completadas ){
+                if( _completado ){
+
+                    contador += 1 ;
+                    console.log( `${ (contador + '.' ).green }   ${_description} :: ${ _completado}` )
+
+                }
+            }else {
+                if( !_completado){
+
+                    contador += 1 ;
+                    console.log( `${ (contador + '.' ).red }  ${_description} :: ${ _completado}` )
+                }
+            }
+
+        } )
+        
 
     }
 
